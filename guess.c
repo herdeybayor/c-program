@@ -5,14 +5,18 @@
 
 int main(void)
 {
-    srand(time(NULL));  
+    srand(time(NULL)); 
+    
+    int max_guess;
+    printf("What is the maximum guess you want to set? (Default 100): ");
+    scanf("%d", &max_guess);
     
     int play_again = 1;
 
     while(play_again == 1)
     {
     
-    int secret_number = rand() % 100 + 1;   
+    int secret_number = rand() % max_guess + 1;   
     int guess = 0;
     int attempts = 0;
     int Lives = 5;
@@ -20,10 +24,10 @@ int main(void)
 
 
 
-    printf("Secret number is: %d\n", secret_number);
+    // printf("Secret number is: %d\n", secret_number);
 
    printf("\n\n === Welcome to the Number Guessing Game! ===\n\n");
-   printf("I have selected a number between 1 and 100. Can you guess it?\n\n");
+   printf("I have selected a number between 1 and %d. Can you guess it?\n\n", max_guess);
 
     while (guess != secret_number && Lives > 0)
     {
